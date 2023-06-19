@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Heroes.Views.ViewCreacionUsuario"
+             BackgroundColor="#000000"
+             xmlns:local="clr-namespace:Heroes.ViewModels"
+             
+             >
+
+    <ContentPage.BindingContext>
+
+        <local:ViewModelCreacionUsuarios></local:ViewModelCreacionUsuarios>
+        
+    </ContentPage.BindingContext>
+    
+    
+    <ContentPage.Content>
+
+
+        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            
+            
+            <!-- Imagen de Logo de la Liga de la Justicia, centrado, tamaño 120 y margenes-->
+            <Image Source="JL.png" HorizontalOptions="Center" HeightRequest="150" Margin="0,0,0,30" />
+
+            <!-- Label con texto iniciar sesion,color blanco, centrado, tamaño de letra 24, BOLD(negrita) y margenes-->
+            <Label Text="Creacion de Usuario" TextColor="White" HorizontalOptions="Center" FontSize="28" FontAttributes="Bold" Margin="0,0,0,20" ></Label>
+
+            <!-- Entry con texto placeholder "Usuario", keyboard tipo correo electronico y margenes, color de playholder y color de fondo   -->
+            <Entry Text="{Binding Usuario}" Placeholder="Usuario" PlaceholderColor="White" BackgroundColor="#272727"   FontAttributes="Bold" Keyboard="Email" Margin="0,0,0,10"    ></Entry>
+
+            <!-- Entry con texto placeholder "Contrasenia", keyboard tipo correo electronico y margenes, color de playholder y color de fondo    -->
+            <Entry Text="{Binding Password}" Placeholder="Contrasenia" PlaceholderColor="White" BackgroundColor="#272727" FontAttributes="Bold" Keyboard="Email" Margin="0,0,0,10"    ></Entry>
+
+
+            <!-- Boton con texto "Crear Usuario" en BOLD, texto color gris, fondo color azul -->
+            <Button Command="{Binding CrearUsuario}" Text="Crear Usuario" TextColor="#3c3c3c" BackgroundColor="#2196f3"  FontAttributes="Bold" Margin="0,10,0,10"  ></Button>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

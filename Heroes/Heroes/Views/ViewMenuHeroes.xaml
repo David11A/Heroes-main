@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Heroes.Views.ViewMenuHeroes"
+             xmlns:local="clr-namespace:Heroes.ViewModels"
+             BackgroundColor="#000000"
+             
+             >
+    <ContentPage.BindingContext>
+
+        <local:VMMenuHeroe></local:VMMenuHeroe>
+        
+    </ContentPage.BindingContext>
+    
+    
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+            <Image Source="JL.png" HorizontalOptions="Center" HeightRequest="150" Margin="0,30,0,-10" />
+
+            <!--Label de titulo de menu-->
+            <Label Text="Menu de Heroes de la Justice League" TextColor="White" HorizontalOptions="Center" FontSize="20" FontAttributes="Bold" Margin="0,30,0,20" />
+
+            
+            <!--CollectionView con binding a la observablecollection ListaMenu de la Clase MenuHeroes con selectionmode single
+            que permite seleccionar solo un elemento en la coleccion, se uso SelectionChangedCommand para redirigir
+            a ViewHeroeModelo-->
+            <CollectionView SelectionMode="Single" 
+                            SelectedItem="{Binding OpcionSeleccionada}" 
+                            ItemsSource="{Binding ListaMenu} " 
+                            Margin="0,10,0,0"
+                            SelectionChangedCommand="{Binding Redireccion}"
+                            
+                            >
+
+                <!--Plantilla de la collectionView-->
+                <CollectionView.ItemTemplate >
+                    <!--Plantilla de los datos dentro de la CollectionView-->
+                    <DataTemplate >
+                        
+                        <!--los datos se ordenaran en forma de Grid-->
+                        <Grid Padding="20" RowDefinitions="Auto, *" ColumnDefinitions="Auto, *" >
+
+                            <!--Imagen en columna 0 Fila 0 con binding a la variable imagen de la Clase MenuHeroes-->
+                            <Image Grid.Column="0" Grid.Row="0" Source="{Binding imagen}" Aspect="Fill" HeightRequest="70" WidthRequest="70" Margin="0,0,0,0" BackgroundColor="#272727" />
+
+                            <!--Label con Binding a variable texto de la Clase MenuHeroes-->
+                            <Label Text="{Binding texto}" Grid.Column="1" Grid.Row="0" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontSize="15" FontAttributes="Bold" Margin="0,0,0,0" BackgroundColor="#272727" />
+                            
+                            
+                            
+
+
+
+                        </Grid>
+
+
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                
+                
+                
+            </CollectionView>
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

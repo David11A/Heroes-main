@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Heroes.Views.ViewHeroeModelo"
+             BackgroundColor="#000000"
+             xmlns:local="clr-namespace:Heroes.ViewModels"
+             
+             >
+    <ContentPage.BindingContext>
+        <local:VMHeroeModelo />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+                <Image Source="JL.png" HorizontalOptions="Center" HeightRequest="150" Margin="0,30,0,-10" />
+
+                <Label Text="Creacion de Heroes Modelos"  TextColor="White" HorizontalOptions="Center" FontSize="20" FontAttributes="Bold" Margin="0,30,0,20" />
+
+
+                <Grid Padding="40" RowDefinitions="Auto, *, Auto" Margin="0,0,0,0">
+
+
+
+
+                    <Entry Text="{Binding NombreHM }" Grid.Row="1" Placeholder="Nombre del Heroe Modelo" PlaceholderColor="White" BackgroundColor="#272727"   FontAttributes="Bold" Keyboard="Email" Margin="0,30,0,0"    ></Entry>
+                    <Entry Text="{Binding IdSecretaHM }" Grid.Row="2" Placeholder="Identidad Secreta del Heroe Modelo" PlaceholderColor="White" BackgroundColor="#272727"   FontAttributes="Bold" Keyboard="Email" Margin="0,10,0,0"    ></Entry>
+                    <Entry Text="{Binding ColorPreferidoHM}" Grid.Row="3" Placeholder="Color Preferido del Heroe Modelo" PlaceholderColor="White" BackgroundColor="#272727"   FontAttributes="Bold" Keyboard="Email" Margin="0,10,0,0"    ></Entry>
+       
+                    <Entry Text="{Binding CantidadAtaques}" Grid.Row="4"  Placeholder="Catidad de Ataques" PlaceholderColor="White" BackgroundColor="#272727"   FontAttributes="Bold" Keyboard="Email" Margin="0,10,0,0"    ></Entry>
+                    <Button Command="{Binding CrearAtaques}" Grid.Row="5"  Text="Ingresar Ataques" TextColor="#3c3c3c" BackgroundColor="#2196f3"  FontAttributes="Bold" Margin="0,20,0,0"></Button>
+                    <Entry Text="{Binding CantidadPoderes}" Grid.Row="6"  Placeholder="Catidad de Poderes" PlaceholderColor="White" BackgroundColor="#272727"   FontAttributes="Bold" Keyboard="Email" Margin="0,10,0,0"    ></Entry>
+                    <Button Command="{Binding CrearPoderes}" Grid.Row="7"  Text="Ingresar Poderes" TextColor="#3c3c3c" BackgroundColor="#2196f3"  FontAttributes="Bold" Margin="0,20,0,0"></Button>
+                    <Button Command="{Binding CrearHM}" Grid.Row="12"  Text="Crear Heroe Modelo" TextColor="#3c3c3c" BackgroundColor="#2196f3"  FontAttributes="Bold" Margin="0,20,0,0" ></Button>
+
+
+                    <Entry Text="{Binding CantidadPequeñosHeroes}" Grid.Row="9"  Placeholder="Catidad de Heroes Pequeños" PlaceholderColor="White" BackgroundColor="#272727"   FontAttributes="Bold" Keyboard="Email" Margin="0,10,0,0"    ></Entry>
+                    <Label Text="Si el Heroe Modelo tendra Heroes Pequeños Formados, ingresar la cantidad y presionar el boton Crear Pequeño Heroe" Grid.Row="8" TextColor="Azure"  FontAttributes="Bold"  Margin="0,10,0,0"/>
+                    <Button Command="{Binding CrearPequenoHeroe}" Grid.Row="10"  Text="Crear Heroe Pequeño" TextColor="#3c3c3c" BackgroundColor="#2196f3"  FontAttributes="Bold" Margin="0,20,0,0" ></Button>
+                    
+                </Grid>
+
+
+
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Heroes.Views.ViewSeleccion_Heroes_Modelo"
+             xmlns:local="clr-namespace:Heroes.ViewModels" xmlns:local1="clr-namespace:Heroes.Converters"
+             BackgroundColor="#000000"
+             
+             
+             >
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local1:ListToStringConverter x:Key="ListToStringConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+    <ContentPage.BindingContext>
+
+        <local:VMMenuHM></local:VMMenuHM>
+        
+        
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                <Image Source="JL.png" HorizontalOptions="Center" HeightRequest="150" Margin="0,30,0,-10" />
+
+                <Label Text="Lista Heroes Modelos" TextColor="White" HorizontalOptions="Center" FontSize="20" FontAttributes="Bold" Margin="0,30,0,20"></Label>
+
+                <CollectionView ItemsSource="{Binding listaHM}"  Margin="0,10,0,0" >
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="20" RowDefinitions="Auto, *, Auto"  Margin="0,-10,0,0">
+                                <Label Text="{Binding Nombre}" Grid.Column="1" Grid.Row="1" FontSize="15" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" BackgroundColor="#272727" LineBreakMode="TailTruncation" />
+                                <Label Text="Nombre del Heroe Modelo: " Grid.Column="0" Grid.Row="1" FontSize="15" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" Margin="0,0,0,0" BackgroundColor="#272727" />
+                                <Label Text="{Binding IdentidadSecreta}" Grid.Column="1" Grid.Row="2" FontSize="15" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" Margin="0,0,0,0" BackgroundColor="#272727" LineBreakMode="TailTruncation" />
+                                <Label Text="Id Secreta: " Grid.Column="0" Grid.Row="2" FontSize="15" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" Margin="0,0,0,0" BackgroundColor="#272727" />
+                                <Label Text="{Binding ColorPreferido}" Grid.Column="1" Grid.Row="3" FontSize="18" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" Margin="0,0,0,0" BackgroundColor="#272727" LineBreakMode="TailTruncation" />
+                                <Label Text="Color Preferido: " Grid.Column="0" Grid.Row="3" FontSize="15" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" Margin="0,0,0,0" BackgroundColor="#272727" />
+                                <Label Text="{Binding listAtaques, Converter={StaticResource ListToStringConverter}}" Grid.Column="1" Grid.Row="4" FontSize="18" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" Margin="0,0,0,0" BackgroundColor="#272727" LineBreakMode="WordWrap" />
+                                <Label Text="Ataques: " Grid.Column="0" Grid.Row="4" FontSize="15" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" Margin="0,0,0,0" BackgroundColor="#272727" />
+                                <Label Text="{Binding listPoderes, Converter={StaticResource ListToStringConverter}}" Grid.Column="1" Grid.Row="5" FontSize="18" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" Margin="0,0,0,0" BackgroundColor="#272727" LineBreakMode="WordWrap" />
+                                <Label Text="Poderes: " Grid.Column="0" Grid.Row="5" FontSize="15" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" Margin="0,0,0,0" BackgroundColor="#272727" />
+
+                                <Label Text="Lista de Heroes Pequeños formados:" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="6" FontSize="15" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" Margin="0,0,0,0" BackgroundColor="#272727" />
+
+                                <CollectionView Grid.Row="7" Grid.ColumnSpan="2" HeightRequest="100" ItemsSource="{Binding ListaPequeñosHeroes}"  VerticalOptions="Start">
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid Padding="0" RowDefinitions="80, *, Auto"  Margin="0,0,0,0">
+                                                <Label Text="Heroe(s) Pequeño(s) formado(s): " Grid.Column="0" Grid.Row="0" FontSize="15" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" Margin="0,0,0,0" BackgroundColor="#272727" />
+                                                <Label Text="{Binding Nombre}" Grid.Column="1" FontSize="15" TextColor="White" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" BackgroundColor="#272727" LineBreakMode="TailTruncation" />
+                                            </Grid>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+
+
+                                
+
+
+
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <Button Command="{Binding VolverMenu}" Padding="20" Text="Volver al Menu de Heroes" TextColor="#3c3c3c" BackgroundColor="#2196f3"  FontAttributes="Bold" Margin="0,20,0,0" ></Button>
+
+
+            </StackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>

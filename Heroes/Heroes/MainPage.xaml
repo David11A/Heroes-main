@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Heroes.MainPage" 
+             BackgroundColor="#000000"
+             xmlns:local="clr-namespace:Heroes.ViewModels"
+
+
+
+    >
+    <ContentPage.BindingContext>
+
+        <local:ViewModelMainPage> </local:ViewModelMainPage>
+        
+    </ContentPage.BindingContext>
+
+    
+
+       
+        
+        
+        
+        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+                
+
+                <!-- Imagen de Logo de la Liga de la Justicia, centrado, tamaño 120 y margenes-->
+                <Image Source="JL.png" HorizontalOptions="Center" HeightRequest="150" Margin="0,0,0,30" />
+
+                <!-- Label con texto iniciar sesion,color blanco, centrado, tamaño de letra 24, BOLD(negrita) y margenes-->
+                <Label Text="Inicio de Sesion" TextColor="White" HorizontalOptions="Center" FontSize="28" FontAttributes="Bold" Margin="0,0,0,20" ></Label>
+
+                <!-- Entry con texto placeholder "Usuario", keyboard tipo correo electronico y margenes, color de playholder y color de fondo   -->
+                <Entry Text="{Binding Usuario}" Placeholder="Usuario" PlaceholderColor="White" BackgroundColor="#272727"   FontAttributes="Bold" Keyboard="Email" Margin="0,0,0,10"    ></Entry>
+
+                <!-- Entry con texto placeholder "Contrasenia", keyboard tipo correo electronico y margenes, color de playholder y color de fondo    -->
+                <Entry Text="{Binding Password}" Placeholder="Contrasenia" PlaceholderColor="White" BackgroundColor="#272727" FontAttributes="Bold" Keyboard="Email" Margin="0,0,0,10"    ></Entry>
+
+                <!-- Boton con texto "Iniciar Sesion" en BOLD, texto color gris, fondo color azul -->
+                <Button Command="{Binding autenticar}" Text="Iniciar Sesion" TextColor="#3c3c3c" BackgroundColor="#2196f3"  FontAttributes="Bold" ></Button>
+
+                <!-- Boton con texto "Crear Usuario" en BOLD, texto color gris, fondo color azul -->
+                <Button Command="{Binding navegarCrearUsuario}" Text="Crear Usuario" TextColor="#3c3c3c" BackgroundColor="#2196f3"  FontAttributes="Bold" Margin="0,10,0,10"  ></Button>
+
+                <Label Text="{Binding Resultado}" />
+                 <!--Alivio Comico-->
+                <Label Text="Powered by Zack Snyder" TextColor="Gray" HorizontalOptions="Center" FontSize="14" Margin="0,100,0,20" FontAttributes="Bold"/>
+
+        
+        </StackLayout>
+
+    
+
+
+
+</ContentPage>
